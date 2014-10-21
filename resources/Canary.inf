@@ -1,0 +1,6 @@
+author=dthiffault
+version=0.0.1-SNAPSHOT
+name=HelloClojure
+language=clojure
+clj-ns=clj-canary-plug.core
+clj-main=enablePlugin
