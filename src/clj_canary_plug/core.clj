@@ -19,8 +19,10 @@
 (defn handlePlayerConnected [hook]
   (log :info "new player connected"))
 
-(defn start-repl 
-  ([name] (start-repl name (:repl-port config)))
-  ([name port] (canary/start-repl @plugin port)))
+(defn start-repl-internal
+  ([cmd] (start-repl-internal cmd (:repl-port config)))
+  ([cmd port] (canary/start-repl @plugin (Integer. port))))
 
-(defn stop-repl [name] (canary/stop-repl @plugin))
+(defn start-repl [[caller parameters]] (apply start-repl-internal parameters))
+
+(defn stop-repl [_] (canary/stop-repl @plugin))
